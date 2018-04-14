@@ -1,0 +1,8 @@
+server:
+  port: 8091
+eureka:
+  instance:
+    hostname: 127.0.0.1 #指定该Eureka实例的主机名，本地默认127.0.0.1，部署docker时再试验
+  client:
+    register-with-eureka: false #Eureka默认也会作为客户端尝试注册，因此需禁用注册行为
+    fetch-registry: false
