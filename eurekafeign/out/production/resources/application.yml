@@ -7,6 +7,6 @@ eureka:
   client:
     service-url:  #注意要加eureka，不然找不到
       defaultZone: http://127.0.0.1:8091/eureka/
-hystrix:
-  metrics:
+feign:
+  hystrix:
     enabled: true
