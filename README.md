@@ -11,3 +11,4 @@ SpringCould 学习
 #### ribbonrest 服务消费者
 手动集成ribbon(负载均衡)、hystrix(熔断器)
 #### configserver 配置中心服务端
+#### configclient 配置中心客户端
