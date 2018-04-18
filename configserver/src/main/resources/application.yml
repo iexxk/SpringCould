@@ -1,0 +1,14 @@
+server:
+  port: 8096
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master  #配置仓库分支
+      server:
+        git:
+          uri:      #配置仓库git地址
+          search-paths:    #配置仓库路径
+          username:   #访问git仓库的用户名
+          password:   #访问git仓库的密码
