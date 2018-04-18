@@ -1,0 +1,10 @@
+server:
+  port: 8097
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master #指明远程仓库的分支
+      profile: dev #dev(开放)、test(测试)、pro(正式)
+      uri: http://127.0.0.1:8096/  #配置中心地址
