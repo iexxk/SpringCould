@@ -7,4 +7,12 @@ spring:
     config:
       label: master #指明远程仓库的分支
       profile: dev #dev(开放)、test(测试)、pro(正式)
-      uri: http://127.0.0.1:8096/  #配置中心地址
+#      uri: http://127.0.0.1:8096/  #配置中心地址  ,用eureka就不是ip地址了
+      discovery:
+        enabled: true
+        service-id: config-server  #这里用服务名
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8091/eureka/ #注意要加eureka，不然找不到
