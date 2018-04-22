@@ -11,7 +11,11 @@ spring:
       discovery:
         enabled: true
         service-id: config-server  #这里用服务名
-
+  rabbitmq:
+    host: 112.74.51.136
+    port: 14002
+    username: root
+    password: adminroot
 eureka:
   client:
     service-url:
