@@ -3,6 +3,14 @@ server:
 spring:
   application:
     name: eureka-client
+  zipkin:
+    base-url: http://10.14.0.7:14009/
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 #采样比例0～1之间，1全部采样
 eureka:
   client:
     service-url:
