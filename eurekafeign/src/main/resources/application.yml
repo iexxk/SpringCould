@@ -11,6 +11,11 @@ spring:
         enabled: true
     sampler:
       probability: 1.0 #采样比例0～1之间，1全部采样
+#  rabbitmq:
+#    port: 14002
+#    host: 10.14.0.1
+#    username: root
+#    password: adminroot
 eureka:
   client:
     service-url:  #注意要加eureka，不然找不到

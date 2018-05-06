@@ -33,7 +33,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
     compile('org.springframework.cloud:spring-cloud-starter-openfeign')
-    compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+    compile('org.springframework.cloud:spring-cloud-starter-zipkin')  //采用mq发消息，所以注释这句测试
+//    compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.springframework.cloud:spring-cloud-starter-sleuth')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
