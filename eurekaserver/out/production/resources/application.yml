@@ -1,16 +1,5 @@
 server:
   port: 8091
-spring:
-  application:
-    name: eureka-client
-  zipkin:
-    base-url: http://10.14.0.7:14009/
-  sleuth:
-    web:
-      client:
-        enabled: true
-    sampler:
-      probability: 1.0 #采样比例0～1之间，1全部采样
 eureka:
   instance:
     hostname: 127.0.0.1 #指定该Eureka实例的主机名，本地默认127.0.0.1，部署docker时再试验
