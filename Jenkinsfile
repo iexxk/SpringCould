@@ -2,9 +2,10 @@
 pipeline {
     agent {dockerfile {dir 'eurekaclient'}}
     stages {
-        stage('Stage 1') {
+        stage('Test') {
             steps {
-                echo 'Hello world!'
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
     }
