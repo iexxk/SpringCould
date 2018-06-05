@@ -10,3 +10,8 @@ pipeline {
         }
     }
 }
+node {
+    docker.withServer('tcp://10.14.0.7:2375', '') {
+
+    }
+}
