@@ -13,9 +13,7 @@ node {
     }
     stage('docker build image'){
         dir('eurekaserver'){  //dockerfile的跟目录
-            docker{
-                image 'springcould/eurekaserver:${env.BUILD_NUMBER}'
-            }
+            docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
         }
     }
 }
