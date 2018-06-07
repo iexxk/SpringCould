@@ -15,7 +15,7 @@ node {
         }
     }
     stage('docker run Application'){
-        docker.image('springcould/eurekaserver:${env.BUILD_NUMBER}').withRun("-p 8091:8091")
+        sh "docker run -p 8091:8091 springcould/eurekaserver:${env.BUILD_NUMBER}"
     }
 
 }
