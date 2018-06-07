@@ -11,4 +11,9 @@ node {
             bat 'gradle clean :eurekaserver:build'
         }
     }
+    stage('docker build image'){
+        dir(eurekaserver){  //dockerfile的跟目录
+            docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
+        }
+    }
 }
