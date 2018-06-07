@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
-pipeline {
+//pipeline {
     //agent {dockerfile {dir 'eurekaclient'}}
-    agent any
+//    agent any
     node {
         def gradleHome = tool 'gradle'
         env.PATH = "${gradleHome}/bin:${env.PATH}"
@@ -24,7 +24,7 @@ pipeline {
 //            }
 //        }
 //    }
-}
+//}
 //node {
 //    docker.withServer('tcp://10.14.0.7:2375', '') {
 //
