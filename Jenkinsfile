@@ -4,10 +4,8 @@ node {
     env.PATH = "${gradleHome}/bin:${env.PATH}"
     stage('gradle build') {
         if (isUnix()) {
-            //sh './gradlew clean :eurekaserver:build'  //这里会自动下载项目里的gradle版本(4.7)
             sh 'gradle clean :eurekaserver:build' //使用jenkns安装的gradle工具(4.8)
         } else {
-           // bat 'gradlew.bat clean :eurekaserver:build'
             bat 'gradle clean :eurekaserver:build'
         }
     }
@@ -16,4 +14,8 @@ node {
             docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
         }
     }
+    stage('docker run Application'){
+        docker.image('springcould/eurekaserver:${env.BUILD_NUMBER}').withRun("-p 8091:8091")
+    }
+
 }
