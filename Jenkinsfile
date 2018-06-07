@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 pipeline {
     //agent {dockerfile {dir 'eurekaclient'}}
+    agent any
     stages {
         stage('Gradle Build') {  //gradle 构建
             if (isUnix()) {
