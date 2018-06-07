@@ -3,7 +3,7 @@
     //agent {dockerfile {dir 'eurekaclient'}}
 //    agent any
     node {
-        def gradleHome = tool 'gradle'
+        def gradleHome = tool 'gradle4.8'
         env.PATH = "${gradleHome}/bin:${env.PATH}"
         stage('build') {
             sh 'gradle -v'
