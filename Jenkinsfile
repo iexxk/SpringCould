@@ -4,7 +4,7 @@ node {
     env.PATH = "${gradleHome}/bin:${env.PATH}"
     stage('build') {
         parallel { //平行
-            stages('eurekaserver build') {
+            stage('eurekaserver build') {
                 stage('gradle build') {
                     sh()
                     if (isUnix()) {
@@ -19,7 +19,7 @@ node {
                     }
                 }
             }
-            stages('eurekaclient build') {
+            stage('eurekaclient build') {
                 stage('gradle build') {
                     sh()
                     if (isUnix()) {
