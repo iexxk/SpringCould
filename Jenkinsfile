@@ -1,21 +1,56 @@
-#!/usr/bin/env groovy Jenkinsfile
 pipeline {
-    agent any
-    stages {
+  agent none
+  stages {
+    stage('Build') {
+      parallel {
         stage('Build') {
-            steps {
-                echo 'Building..'
+          agent {
+            node {
+              label 'gradle'
             }
+
+          }
+          environment {
+            gradleHome = 'path'
+          }
+          steps {
+            echo 'Building..'
+          }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage('bbb') {
+          agent {
+            node {
+              label 'build 2'
             }
+
+          }
+          steps {
+            sh 'echo \'build2\''
+          }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+      }
     }
+    stage('image') {
+      agent {
+        dockerfile {
+          filename 'as'
+        }
+
+      }
+      steps {
+        echo 'Testing..'
+      }
+    }
+    stage('Deploy') {
+      agent {
+        node {
+          label 'ds'
+        }
+
+      }
+      steps {
+        echo 'Deploying....'
+      }
+    }
+  }
 }
