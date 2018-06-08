@@ -2,7 +2,9 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'project_choice', choice: 'eurekaserver\neurekaclient', description: '你要构建哪个项目？')
+        choice(name: 'door_choice',
+                choices: 'one\ntwo\nthree\nfour',
+                description: 'What door do you choose?')
     }
 //    def gradleHome = tool 'gradle4.8'  //这里的gradle4.8要和gradle工具的配置里的name要一致
 //    env.PATH = "${gradleHome}/bin:${env.PATH}"
