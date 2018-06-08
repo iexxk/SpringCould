@@ -2,16 +2,18 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'door_choice',
-                choices: 'one\ntwo\nthree\nfour',
-                description: 'What door do you choose?')
+        choice(name: 'project_choice',
+                choices: 'eurekaserver\neurekaclient\neurekafeign\neurekazuul',
+                description: '你要编译构建那个项目?')
     }
     stages {
-        stage('build') {
-            tool "gradle4.8"
+        stage('gradle build') {
+            tools {
+                gradle "gradle4.8" //这里的gradle4.8要和gradle工具的配置里的name要一致
+            }
             steps {
-                echo "${params.door_choice}"
-                sh 'gradle -v'
+                echo "开始构建${params.project_choice}项目"
+                sh "gradle clean :${params.project_choice}:build" //使用jenkns安装的gradle工具(4.8)
             }
         }
     }
