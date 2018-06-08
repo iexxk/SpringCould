@@ -8,8 +8,12 @@ pipeline {
     }
     stages {
         stage('build') {
+            tools{
+                gradle "gradle4.8"
+            }
             steps {
                 echo "${params.door_choice}"
+                sh 'gradle -v'
             }
         }
     }
