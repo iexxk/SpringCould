@@ -15,9 +15,9 @@ pipeline {
                         }
                     }
                 }
-                steps {
-                    echo 'Testing..'
-                }
+            }
+            steps {
+                echo 'Testing..'
             }
         }
         stage('image') {
