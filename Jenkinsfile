@@ -8,7 +8,7 @@ pipeline {
     }
     stages {
         stage('gradle build') {
-            agent { label 'gradle' }
+            agent { label 'gradle4.8' }
             steps {
                 echo "${params.door_choice}"
                 sh 'gradle -v'
