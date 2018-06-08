@@ -1,4 +1,6 @@
 #!/usr/bin/env groovy Jenkinsfile
+import groovyjarjarasm.asm.Label
+
 pipeline {
     agent any
     parameters {
@@ -18,8 +20,11 @@ pipeline {
             }
         }
         stage('docker build'){
-            dir("${params.project_choice}") {  //dockerfile的跟目录
-                sh "pwd"
+            agent {
+                dockerfile {
+                    dir "${params.project_choice}"
+                    label "springcould/${params.project_choice}:${env.BUILD_NUMBER}"
+                }
             }
             steps{
                 sh "pwd"
