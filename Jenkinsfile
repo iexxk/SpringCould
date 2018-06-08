@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy Jenkinsfile
-#!/usr/bin/env groovy Jenkinsfile
 node {
     def gradleHome = tool 'gradle4.8'  //这里的gradle4.8要和gradle工具的配置里的name要一致
     env.PATH = "${gradleHome}/bin:${env.PATH}"
