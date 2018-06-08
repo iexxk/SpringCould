@@ -1,25 +1,18 @@
 #!/usr/bin/env groovy Jenkinsfile
-pipeline {
-    agent any
-    stage('Build') {
-        echo 'build'
+#!/usr/bin/env groovy Jenkinsfile
+node {
+    def gradleHome = tool 'gradle4.8'  //这里的gradle4.8要和gradle工具的配置里的name要一致
+    env.PATH = "${gradleHome}/bin:${env.PATH}"
+    stage('gradle build') {
+        if (isUnix()) {
+            sh 'gradle clean :eurekaserver:build' //使用jenkns安装的gradle工具(4.8)
+        } else {
+            bat 'gradle clean :eurekaserver:build'
+        }
     }
-
-    stage('Test') {
-        parallel pj1: {
-            node('pj1') {
-                echo 'pj1'
-                stage("p b") {
-                    echo 'p b'
-                }
-            }
-        }, pj2: {
-            node('pj2') {
-                echo 'pj2'
-                stage("p a") {
-                    echo 'p a'
-                }
-            }
+    stage('docker build image') {
+        dir('eurekaserver') {  //dockerfile的跟目录
+            docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
         }
     }
 }
