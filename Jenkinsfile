@@ -18,7 +18,7 @@ pipeline {
             }
         }
         stage('docker build'){
-            dir(${params.project_choice}) {  //dockerfile的跟目录
+            dir("${params.project_choice}") {  //dockerfile的跟目录
                 sh "pwd"
             }
         }
