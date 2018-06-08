@@ -13,7 +13,8 @@ pipeline {
             }
             steps {
                 echo "开始构建${params.project_choice}项目"
-                sh "gradle clean :${params.project_choice}:build" //使用jenkns安装的gradle工具(4.8)
+                sh "gradle :${params.project_choice}:clean" //清理
+                sh "gradle :${params.project_choice}:build" //构建
             }
         }
     }
