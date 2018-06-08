@@ -23,6 +23,7 @@ pipeline {
             agent {
                 dockerfile {
                     dir "${params.project_choice}"
+                    label "springcould/${params.project_choice}:${env.BUILD_NUMBER}"
                 }
             }
             steps{
