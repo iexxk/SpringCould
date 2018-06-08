@@ -21,6 +21,9 @@ pipeline {
             dir("${params.project_choice}") {  //dockerfile的跟目录
                 sh "pwd"
             }
+            steps{
+                sh "pwd"
+            }
         }
     }
 }
