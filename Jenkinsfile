@@ -17,5 +17,10 @@ pipeline {
                 sh "gradle :${params.project_choice}:build" //构建
             }
         }
+        stage('docker build'){
+            dir(${params.project_choice}) {  //dockerfile的跟目录
+                sh "pwd"
+            }
+        }
     }
 }
