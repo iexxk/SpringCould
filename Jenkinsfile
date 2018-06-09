@@ -16,18 +16,18 @@ pipeline {
                 echo "开始构建${params.project_choice}项目"
                 sh "gradle :${params.project_choice}:clean" //清理
                 sh "gradle :${params.project_choice}:build" //构建
-                echo "${env.JOB_NAME}/${params.project_choice}"
-                sh "pwd"
             }
         }
         stage('docker build'){
-            agent {
-                dockerfile {
-                    customWorkspace "${env.JOB_NAME}/${params.project_choice}"
-                }
-            }
+//            agent {
+//                dockerfile {
+//                    customWorkspace "${env.JOB_NAME}/${params.project_choice}"
+//                }
+//            }
             steps{
-                sh "pwd"
+               dir("${params.project_choice}"){
+                   sh "pwd"
+               }
             }
         }
     }
