@@ -29,7 +29,7 @@ pipeline {
 //            }
 //        }
         stage('docker build image') {
-            steps {
+            node {
                 dir('eurekaserver') {  //dockerfile的跟目录
                     docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
                 }
