@@ -22,7 +22,7 @@ pipeline {
             agent {
                 dockerfile {
                     customWorkspace "${workspace}/${params.project_choice}"
-                }K
+                }
             }
             steps{
                 sh "pwd"
