@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy Jenkinsfile
-import groovyjarjarasm.asm.Label
 
 pipeline {
     agent any
@@ -22,7 +21,7 @@ pipeline {
         stage('docker build'){
             agent {
                 dockerfile {
-                    dir "${params.project_choice}"
+                    customWorkspace "${params.project_choice}"
                 }
             }
             steps{
