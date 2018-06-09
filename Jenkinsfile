@@ -28,9 +28,11 @@ pipeline {
 //                sh "pwd"
 //            }
 //        }
-        stage('docker build image'){
-            dir('eurekaserver'){  //dockerfile的跟目录
-                docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
+        stage('docker build image') {
+            steps {
+                dir('eurekaserver') {  //dockerfile的跟目录
+                    docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
+                }
             }
         }
     }
