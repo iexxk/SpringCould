@@ -27,7 +27,9 @@ pipeline {
             steps{
                dir("${params.project_choice}"){
                    sh "pwd"
-                   docker.build("my-image:${env.BUILD_ID}")
+                   script {
+                       docker.build("my-image:${env.BUILD_ID}")
+                   }
                }
             }
         }
