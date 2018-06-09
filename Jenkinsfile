@@ -18,21 +18,16 @@ pipeline {
                 sh "gradle :${params.project_choice}:build" //构建
             }
         }
-//        stage('docker build'){
-//            agent {
-//                dockerfile {
-//                    customWorkspace "${workspace}/${params.project_choice}"
-//                }
-//            }
-//            steps{
-//                sh "pwd"
-//            }
-//        }
-        stage('docker build image') {
-            node {
+        stage('docker build'){
+            agent {
                 dir('eurekaserver') {  //dockerfile的跟目录
-                    docker.build("springcould/eurekaserver:${env.BUILD_NUMBER}")
+                    dockerfile {
+                        customWorkspace "${workspace}/${params.project_choice}"
+                    }
                 }
+            }
+            steps{
+                sh "pwd"
             }
         }
     }
