@@ -21,7 +21,7 @@ pipeline {
         stage('docker build'){
             agent {
                 dockerfile {
-                    customWorkspace "./${params.project_choice}"
+                    customWorkspace "${env.JOB_NAME}/${params.project_choice}"
                 }
             }
             steps{
