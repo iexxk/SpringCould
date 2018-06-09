@@ -21,8 +21,8 @@ pipeline {
         stage('docker build'){
             agent {
                 dockerfile {
-                    customWorkspace "./${params.project_choice}"
-                }
+                    customWorkspace "${workspace}/${params.project_choice}"
+                }K
             }
             steps{
                 sh "pwd"
