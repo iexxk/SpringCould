@@ -20,10 +20,8 @@ pipeline {
         }
         stage('docker build'){
             agent {
-                dir('eurekaserver') {  //dockerfile的跟目录
-                    dockerfile {
-                        customWorkspace "${workspace}/${params.project_choice}"
-                    }
+                dockerfile {
+                    customWorkspace "./${params.project_choice}"
                 }
             }
             steps{
