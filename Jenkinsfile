@@ -16,6 +16,7 @@ pipeline {
                 echo "开始构建${params.project_choice}项目"
                 sh "gradle :${params.project_choice}:clean" //清理
                 sh "gradle :${params.project_choice}:build" //构建
+                echo "${env.JOB_NAME}/${params.project_choice}"
             }
         }
         stage('docker build'){
