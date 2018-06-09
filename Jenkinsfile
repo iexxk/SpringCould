@@ -22,7 +22,7 @@ pipeline {
             agent {
                 dir('eurekaserver') {  //dockerfile的跟目录
                     dockerfile {
-                        true
+                        customWorkspace "${workspace}/${params.project_choice}"
                     }
                 }
             }
