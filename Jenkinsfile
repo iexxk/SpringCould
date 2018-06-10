@@ -4,7 +4,13 @@ pipeline {
     agent any
     parameters {
         choice(name: 'project_choice',
-                choices: 'eurekaserver\neurekaclient\neurekafeign\neurekazuul',
+                choices: 'eurekaserver' +
+                        '\neurekaclient' +
+                        '\neurekafeign' +
+                        '\neurekazuul' +
+                        '\nribbonrest' +
+                        '\nconfigserver' +
+                        '\nconfigclient',
                 description: '你要编译构建那个项目?')
     }
     stages {
@@ -19,17 +25,12 @@ pipeline {
             }
         }
         stage('docker build'){
-//            agent {
-//                dockerfile {
-//                    customWorkspace "${env.JOB_NAME}/${params.project_choice}"
-//                }
-//            }
             steps{
-               dir("${params.project_choice}"){
-                   sh "pwd"
-                   script {
-                       docker.build("my-image:${env.BUILD_ID}")
+               dir("${params.project_choice}"){  //切换执行目录
+                   script {  //需要用script包裹，就能使用脚本式语言
+                       docker.build("${env.JOB_NAME}/${params.project_choice}:${env.BUILD_NUMBER}")
                    }
+                   echo "构建镜像${env.JOB_NAME}/${params.project_choice}:${env.BUILD_NUMBER}完成"
                }
             }
         }
