@@ -17,8 +17,11 @@ public class HiController {
     @Value("${common}") //调用配置中心的配置
             String common;
 
+    @Value("${test.hi}") //调用配置中心的配置
+            String testHi;
+
     @RequestMapping(value = "/hi")
     public List<String> hi() {
-        return Arrays.asList(test, common);
+        return Arrays.asList(test, common,testHi);
     }
 }
