@@ -12,10 +12,10 @@ spring:
         enabled: true
         service-id: config-server  #这里用服务名
   rabbitmq:
-    host: 112.74.51.136
-    port: 14002
-    username: root
-    password: adminroot
+    host: gt163.cn
+    port: 14012
+    username: test
+    password: test
 eureka:
   client:
     service-url:

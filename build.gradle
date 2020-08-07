@@ -1,9 +1,16 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
+        springBootVersion = '2.1.12.RELEASE'
     }
     repositories {
-        mavenCentral()
+        maven {
+            credentials {
+                username 'read'
+                password 'read123'
+            }
+            url 'http://gt163.cn:14006/repository/maven-public/'
+        }
+//        mavenCentral() //由上面的私仓库替代
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -25,7 +32,7 @@ configure(subprojects.findAll {
 
 
     ext {
-        springCloudVersion = 'Finchley.M9'
+        springCloudVersion = 'Greenwich.SR5'
     }
 
     dependencies {
@@ -43,7 +50,13 @@ configure(subprojects.findAll {
 
 allprojects {
     repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/milestone" }
+        maven {
+            credentials {
+                username 'read'
+                password 'read123'
+            }
+            url 'http://gt163.cn:14006/repository/maven-public/'
+        }
+//        mavenCentral() //由上面的私仓库替代
     }
 }
