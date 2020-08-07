@@ -4,7 +4,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: native  #这里进行仓库预选，可设置native和git，分别对应spring.cloud.config.server下面的值
+    active: native,git  #这里进行仓库预选，可设置native和git,也可以设置两个，然后通过order进行优先级设置，分别对应spring.cloud.config.server下面的值
   cloud:
     config:
       label: master  #配置仓库分支
@@ -12,10 +12,12 @@ spring:
         git:
           uri: https://github.com/xuanfong1/SpringCould/   #配置仓库git地址
           search-paths: config/testrepo   #配置仓库路径
-#          username:   #访问git仓库的用户名，这里因为是开放项目所以不需要设置
+          order: 2 #优先级数字越小越优先，如果两个有相同的配置，用数字小的配置
+        #          username:   #访问git仓库的用户名，这里因为是开放项目所以不需要设置
 #          password:   #访问git仓库的密码
         native: #本地配置文件仓库的绝对路径
           search-locations: /Users/xuanleung/workspace/SpringCould/config/testrepo
+          order: 1
 eureka:
   client:
     service-url:
