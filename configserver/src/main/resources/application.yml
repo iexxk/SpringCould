@@ -18,7 +18,17 @@ spring:
         native: #本地配置文件仓库的绝对路径
           search-locations: /Users/xuanleung/workspace/SpringCould/config/testrepo
           order: 1
+  rabbitmq:  #支持通过server 更新client 的配置
+    host: gt163.cn
+    port: 14012
+    username: test
+    password: test
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8091/eureka/ #注意要加eureka，不然找不到
+management:  #支持通过server 更新client 的配置
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","bus-refresh"]
