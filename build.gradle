@@ -32,7 +32,7 @@ configure(subprojects.findAll {
 
 
     ext {
-        springCloudVersion = 'Greenwich.SR5'
+        springCloudVersion = 'Greenwich.SR6'
     }
 
     dependencies {
