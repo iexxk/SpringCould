@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       name: config-client,test  #指定配置文件，如果不需要指定，注释该行
-      label: master #指明远程仓库的分支
+#      label: master #指明远程仓库的分支,不指定，用服务端的默认分支控制
       profile: dev #dev(开放)、test(测试)、pro(正式)
 #      uri: http://127.0.0.1:8096/  #配置中心地址  ,用eureka就不是ip地址了
       discovery:
